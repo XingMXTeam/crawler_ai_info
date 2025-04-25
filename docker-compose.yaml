@@ -1,0 +1,104 @@
+version: '3.1'
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "3000:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+    depends_on:
+      - api
+      - web
+    networks:
+      - default
+
+  web:
+    image: langgenius/dify-web:1.3.0
+    environment:
+      - EDITION=SELF_HOSTED
+      - CONSOLE_URL=http://localhost:3000
+      - API_URL=http://localhost:3000/api
+      - APP_URL=http://localhost:3000
+    networks:
+      - default
+    depends_on:
+      - api
+
+  api:
+    image: langgenius/dify-api:1.3.0
+    environment:
+      - EDITION=SELF_HOSTED
+      - CONSOLE_URL=http://localhost:3000
+      - API_URL=http://localhost:3000/api
+      - APP_URL=http://localhost:3000
+      - STORAGE_TYPE=local
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=dify
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=dify-postgres
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_USERNAME=default
+      - REDIS_PASSWORD=dify-redis
+      - REDIS_DB=0
+    volumes:
+      - ./volumes/storage:/app/api/storage
+    networks:
+      - default
+    depends_on:
+      - db
+      - redis
+
+  worker:
+    image: langgenius/dify-api:1.3.0
+    command: celery -A app.celery worker -P gevent -c 1 --loglevel INFO
+    environment:
+      - EDITION=SELF_HOSTED
+      - CONSOLE_URL=http://localhost:3000
+      - API_URL=http://localhost:3000/api
+      - APP_URL=http://localhost:3000
+      - STORAGE_TYPE=local
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=dify
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=dify-postgres
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_USERNAME=default
+      - REDIS_PASSWORD=dify-redis
+      - REDIS_DB=0
+    volumes:
+      - ./volumes/storage:/app/api/storage
+    networks:
+      - default
+    depends_on:
+      - redis
+      - db
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=dify
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=dify-postgres
+    volumes:
+      - ./volumes/postgres:/var/lib/postgresql/data
+    networks:
+      - default
+
+  redis:
+    image: redis:6-alpine
+    environment:
+      - REDIS_USERNAME=default
+      - REDIS_PASSWORD=dify-redis
+    volumes:
+      - ./volumes/redis:/data
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge 
