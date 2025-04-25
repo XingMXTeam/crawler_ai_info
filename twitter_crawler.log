@@ -1,0 +1,96 @@
+2025-04-25 07:40:57,807 - INFO - Processing https://x.com/sama (1/88)
+2025-04-25 07:40:57,819 - INFO - Starting to crawl: https://x.com/sama
+2025-04-25 07:41:00,665 - INFO - Successfully parsed profile for https://x.com/sama: found 1 tweets
+2025-04-25 07:41:00,665 - INFO - Successfully crawled: https://x.com/sama
+2025-04-25 07:41:00,665 - INFO - Processing https://x.com/github (2/88)
+2025-04-25 07:41:03,666 - INFO - Starting to crawl: https://x.com/github
+2025-04-25 07:41:05,499 - INFO - Successfully parsed profile for https://x.com/github: found 1 tweets
+2025-04-25 07:41:05,499 - INFO - Successfully crawled: https://x.com/github
+2025-04-25 07:41:05,500 - INFO - Processing https://x.com/gui_penedo (3/88)
+2025-04-25 07:41:08,501 - INFO - Starting to crawl: https://x.com/gui_penedo
+2025-04-25 07:41:10,442 - INFO - Successfully parsed profile for https://x.com/gui_penedo: found 1 tweets
+2025-04-25 07:41:10,442 - INFO - Successfully crawled: https://x.com/gui_penedo
+2025-04-25 07:41:10,442 - INFO - Processing https://x.com/01Ai_Yi (4/88)
+2025-04-25 07:41:13,444 - INFO - Starting to crawl: https://x.com/01Ai_Yi
+2025-04-25 07:41:15,657 - INFO - Successfully parsed profile for https://x.com/01Ai_Yi: found 1 tweets
+2025-04-25 07:41:15,657 - INFO - Successfully crawled: https://x.com/01Ai_Yi
+2025-04-25 07:41:15,657 - INFO - Processing https://x.com/gneubig (5/88)
+2025-04-25 07:41:18,658 - INFO - Starting to crawl: https://x.com/gneubig
+2025-04-25 07:41:20,875 - INFO - Successfully parsed profile for https://x.com/gneubig: found 1 tweets
+2025-04-25 07:41:20,875 - INFO - Successfully crawled: https://x.com/gneubig
+2025-04-25 07:41:20,880 - INFO - Saved intermediate results to twitter_results_1745538080.json
+2025-04-25 07:41:20,880 - INFO - Processing https://x.com/AssemblyAI (6/88)
+2025-04-25 07:41:23,880 - INFO - Starting to crawl: https://x.com/AssemblyAI
+2025-04-25 07:41:25,824 - INFO - Successfully parsed profile for https://x.com/AssemblyAI: found 1 tweets
+2025-04-25 07:41:25,824 - INFO - Successfully crawled: https://x.com/AssemblyAI
+2025-04-25 07:41:25,824 - INFO - Processing https://x.com/perplexity_ai (7/88)
+2025-04-25 07:41:28,998 - WARNING - Crawling interrupted by user
+2025-04-25 07:47:04,846 - INFO - Processing https://x.com/sama (1/88)
+2025-04-25 07:47:04,846 - INFO - Starting to crawl: https://x.com/sama
+2025-04-25 07:47:07,470 - INFO - Successfully parsed profile for https://x.com/sama: found 23 tweets
+2025-04-25 07:47:07,470 - INFO - Successfully crawled: https://x.com/sama
+2025-04-25 07:47:07,471 - INFO - Processing https://x.com/github (2/88)
+2025-04-25 07:47:10,471 - INFO - Starting to crawl: https://x.com/github
+2025-04-25 07:47:12,302 - INFO - Successfully parsed profile for https://x.com/github: found 17 tweets
+2025-04-25 07:47:12,302 - INFO - Successfully crawled: https://x.com/github
+2025-04-25 07:47:12,302 - INFO - Processing https://x.com/gui_penedo (3/88)
+2025-04-25 07:47:15,303 - INFO - Starting to crawl: https://x.com/gui_penedo
+2025-04-25 07:47:17,182 - INFO - Successfully parsed profile for https://x.com/gui_penedo: found 19 tweets
+2025-04-25 07:47:17,183 - INFO - Successfully crawled: https://x.com/gui_penedo
+2025-04-25 07:47:17,183 - INFO - Processing https://x.com/01Ai_Yi (4/88)
+2025-04-25 07:47:20,184 - INFO - Starting to crawl: https://x.com/01Ai_Yi
+2025-04-25 07:47:22,359 - INFO - Successfully parsed profile for https://x.com/01Ai_Yi: found 3 tweets
+2025-04-25 07:47:22,359 - INFO - Successfully crawled: https://x.com/01Ai_Yi
+2025-04-25 07:47:22,360 - INFO - Processing https://x.com/gneubig (5/88)
+2025-04-25 07:47:45,838 - WARNING - Crawling interrupted by user
+2025-04-25 07:47:52,269 - INFO - Processing https://x.com/sama (1/88)
+2025-04-25 07:47:52,270 - INFO - Starting to crawl: https://x.com/sama
+2025-04-25 07:47:54,799 - INFO - Successfully parsed profile for https://x.com/sama: found 23 tweets
+2025-04-25 07:47:54,799 - INFO - Successfully crawled: https://x.com/sama
+2025-04-25 07:47:54,799 - INFO - Processing https://x.com/github (2/88)
+2025-04-25 07:47:57,801 - INFO - Starting to crawl: https://x.com/github
+2025-04-25 07:47:59,698 - INFO - Successfully parsed profile for https://x.com/github: found 17 tweets
+2025-04-25 07:47:59,698 - INFO - Successfully crawled: https://x.com/github
+2025-04-25 07:47:59,698 - INFO - Processing https://x.com/gui_penedo (3/88)
+2025-04-25 07:48:02,699 - INFO - Starting to crawl: https://x.com/gui_penedo
+2025-04-25 07:48:04,651 - INFO - Successfully parsed profile for https://x.com/gui_penedo: found 19 tweets
+2025-04-25 07:48:04,651 - INFO - Successfully crawled: https://x.com/gui_penedo
+2025-04-25 07:48:04,652 - INFO - Processing https://x.com/01Ai_Yi (4/88)
+2025-04-25 07:48:07,653 - INFO - Starting to crawl: https://x.com/01Ai_Yi
+2025-04-25 07:48:09,753 - INFO - Successfully parsed profile for https://x.com/01Ai_Yi: found 3 tweets
+2025-04-25 07:48:09,753 - INFO - Successfully crawled: https://x.com/01Ai_Yi
+2025-04-25 07:48:09,753 - INFO - Processing https://x.com/gneubig (5/88)
+2025-04-25 07:48:12,755 - INFO - Starting to crawl: https://x.com/gneubig
+2025-04-25 07:48:15,024 - INFO - Successfully parsed profile for https://x.com/gneubig: found 30 tweets
+2025-04-25 07:48:15,025 - INFO - Successfully crawled: https://x.com/gneubig
+2025-04-25 07:48:15,028 - INFO - Saved intermediate results to twitter_results_1745538495.json
+2025-04-25 07:48:15,028 - INFO - Processing https://x.com/AssemblyAI (6/88)
+2025-04-25 07:48:18,029 - INFO - Starting to crawl: https://x.com/AssemblyAI
+2025-04-25 07:48:19,824 - INFO - Successfully parsed profile for https://x.com/AssemblyAI: found 20 tweets
+2025-04-25 07:48:19,824 - INFO - Successfully crawled: https://x.com/AssemblyAI
+2025-04-25 07:48:19,825 - INFO - Processing https://x.com/perplexity_ai (7/88)
+2025-04-25 07:48:22,857 - WARNING - Crawling interrupted by user
+2025-04-25 07:55:37,620 - INFO - Processing https://x.com/sama (1/88)
+2025-04-25 07:55:37,621 - INFO - Starting to crawl: https://x.com/sama
+2025-04-25 07:55:40,187 - INFO - Successfully parsed profile for https://x.com/sama: found 5 tweets
+2025-04-25 07:55:40,188 - INFO - Successfully crawled: https://x.com/sama
+2025-04-25 07:55:40,188 - INFO - Processing https://x.com/github (2/88)
+2025-04-25 07:55:43,189 - INFO - Starting to crawl: https://x.com/github
+2025-04-25 07:55:44,981 - INFO - Successfully parsed profile for https://x.com/github: found 2 tweets
+2025-04-25 07:55:44,981 - INFO - Successfully crawled: https://x.com/github
+2025-04-25 07:55:44,981 - INFO - Processing https://x.com/gui_penedo (3/88)
+2025-04-25 07:55:47,982 - INFO - Starting to crawl: https://x.com/gui_penedo
+2025-04-25 07:55:49,992 - INFO - Successfully parsed profile for https://x.com/gui_penedo: found 0 tweets
+2025-04-25 07:55:49,992 - INFO - Successfully crawled: https://x.com/gui_penedo
+2025-04-25 07:55:49,992 - INFO - Processing https://x.com/01Ai_Yi (4/88)
+2025-04-25 07:55:52,994 - INFO - Starting to crawl: https://x.com/01Ai_Yi
+2025-04-25 07:55:54,953 - INFO - Successfully parsed profile for https://x.com/01Ai_Yi: found 0 tweets
+2025-04-25 07:55:54,953 - INFO - Successfully crawled: https://x.com/01Ai_Yi
+2025-04-25 07:55:54,953 - INFO - Processing https://x.com/gneubig (5/88)
+2025-04-25 07:55:57,954 - INFO - Starting to crawl: https://x.com/gneubig
+2025-04-25 07:56:00,287 - INFO - Successfully parsed profile for https://x.com/gneubig: found 2 tweets
+2025-04-25 07:56:00,287 - INFO - Successfully crawled: https://x.com/gneubig
+2025-04-25 07:56:00,288 - INFO - Saved intermediate results to twitter_results_1745538960.json
+2025-04-25 07:56:00,288 - INFO - Processing https://x.com/AssemblyAI (6/88)
+2025-04-25 07:56:03,289 - INFO - Starting to crawl: https://x.com/AssemblyAI
+2025-04-25 07:56:03,593 - WARNING - Crawling interrupted by user

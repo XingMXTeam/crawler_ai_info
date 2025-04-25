@@ -1,0 +1,119 @@
+[
+  {
+    "url": "https://x.com/sama",
+    "nitter_url": "https://nitter.net/sama",
+    "timestamp": "2025-04-25T07:55:40.188227",
+    "parsed_data": {
+      "username": "@sama",
+      "display_name": "Sam Altman",
+      "bio": null,
+      "tweets": [
+        {
+          "text": "a few things are different about the api version than the chatgpt version: you can control moderation sensitivity with the 'moderation' parameter you can also control things like quality vs generation speed, background, output format, etc.\n204\n97\n33\n2,773",
+          "time": "Apr 23",
+          "likes": null,
+          "retweets": null
+        },
+        {
+          "text": "imagegen is launched in the openai api! build cool stuff plz\n635\n455\n216\n10,112",
+          "time": "Apr 23",
+          "likes": null,
+          "retweets": null
+        },
+        {
+          "text": "(please remember to thank chatgpt.)\n568\n256\n107\n7,184",
+          "time": "Apr 23",
+          "likes": null,
+          "retweets": null
+        },
+        {
+          "text": "we really do try to listen to feedback! we would love to be able to do even more; we continue to have to make very hard tradeoffs between rate limits, new feature launches, and latency. the GPUs are coming, so hopefully it gets better.\n307\n81\n14\n3,070",
+          "time": "Apr 23",
+          "likes": null,
+          "retweets": null
+        },
+        {
+          "text": "we have doubled rate limits for o3 and o4-mini-high for chatgpt plus subscribers. enjoy!\n1,015\n679\n278\n16,945",
+          "time": "Apr 23",
+          "likes": null,
+          "retweets": null
+        }
+      ]
+    },
+    "success": true
+  },
+  {
+    "url": "https://x.com/github",
+    "nitter_url": "https://nitter.net/github",
+    "timestamp": "2025-04-25T07:55:44.981433",
+    "parsed_data": {
+      "username": "@github",
+      "display_name": "GitHub",
+      "bio": null,
+      "tweets": [
+        {
+          "text": "Do the images in your GitHub README look weird in dark mode or light mode? 😬 Here's how to make your Markdown images display perfectly in any theme. 🌓 [github.blog/developer-skills…](https://github.blog/developer-skills/github/how-to-make-your-images-in-markdown-on-github-adjust-for-dark-mode-and-light-mode/)\n[ ! How to make your images in Markdown on GitHub adjust for dark mode and light mode When you want your images to look good in Markdown on GitHub, you might have to adjust for the UI around them. github.blog ](https://github.blog/developer-skills/github/how-to-make-your-images-in-markdown-on-github-adjust-for-dark-mode-and-light-mode/)",
+          "time": "Apr 23",
+          "likes": null,
+          "retweets": null
+        },
+        {
+          "text": "Still putting passwords, API keys, and/or tokens in config files? 👀 Use GitHub's safer, built-in secrets instead! Keep your keys secure when using Actions, Dependabot, and Codespaces. ✅ [docs.github.com/en/code-secu…](https://docs.github.com/en/code-security/getting-started/understanding-github-secret-types)\n3\n20\n1\n124\nGitHub retweeted",
+          "time": "Apr 23",
+          "likes": null,
+          "retweets": null
+        }
+      ]
+    },
+    "success": true
+  },
+  {
+    "url": "https://x.com/gui_penedo",
+    "nitter_url": "https://nitter.net/gui_penedo",
+    "timestamp": "2025-04-25T07:55:49.992445",
+    "parsed_data": {
+      "username": "@gui_penedo",
+      "display_name": "Guilherme Penedo",
+      "bio": null,
+      "tweets": []
+    },
+    "success": true
+  },
+  {
+    "url": "https://x.com/01Ai_Yi",
+    "nitter_url": "https://nitter.net/01Ai_Yi",
+    "timestamp": "2025-04-25T07:55:54.953339",
+    "parsed_data": {
+      "username": "@01AI_Yi",
+      "display_name": "Yi-01.AI",
+      "bio": null,
+      "tweets": []
+    },
+    "success": true
+  },
+  {
+    "url": "https://x.com/gneubig",
+    "nitter_url": "https://nitter.net/gneubig",
+    "timestamp": "2025-04-25T07:56:00.287535",
+    "parsed_data": {
+      "username": "@gneubig",
+      "display_name": "Graham Neubig",
+      "bio": null,
+      "tweets": [
+        {
+          "text": "I've been using the suggested tasks in OpenHands for some of today and it's surprisingly addictive. You just click down all your open PRs, click \"launch\" and OpenHands fixes all the failing tests and unresolved review comments. It's surprisingly satisfying 😀\n!",
+          "time": "Apr 23",
+          "likes": null,
+          "retweets": null
+        },
+        {
+          "text": "OpenHands 0.34.0 is released! It features two new UI improvements to OpenHands that should make OpenHands easier and more fun to use!\n1\n1\n26\nGraham Neubig retweeted",
+          "time": "Apr 23",
+          "likes": null,
+          "retweets": null
+        }
+      ]
+    },
+    "success": true
+  }
+]
