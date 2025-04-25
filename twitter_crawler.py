@@ -5,7 +5,6 @@ from datetime import datetime
 import time
 import logging
 from twitter_urls import TWITTER_URLS
-import aiohttp
 from nitter_parser import parse_nitter_content
 
 # Set up logging
