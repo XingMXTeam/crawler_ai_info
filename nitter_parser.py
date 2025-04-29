@@ -41,24 +41,50 @@ def clean_tweet_text(text: str) -> str:
 
 def parse_date(date_str: str) -> datetime:
     """Convert date string to datetime object"""
-    months = {
-        'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6,
-        'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12
-    }
-    
-    month_str, day_str = date_str.split()
-    month = months[month_str]
-    day = int(day_str)
-    
-    # Get current year
-    current_date = datetime.now()
-    year = current_date.year
-    
-    # If the month is ahead of current month, it must be from last year
-    if month > current_date.month:
-        year -= 1
+    # Handle relative time formats like "2h", "1d", etc.
+    if any(unit in date_str.lower() for unit in ['s', 'm', 'h', 'd']):
+        now = datetime.now()
+        unit = date_str[-1].lower()
+        try:
+            value = int(date_str[:-1])
+            if unit == 's':
+                return now - timedelta(seconds=value)
+            elif unit == 'm':
+                return now - timedelta(minutes=value)
+            elif unit == 'h':
+                return now - timedelta(hours=value)
+            elif unit == 'd':
+                return now - timedelta(days=value)
+        except ValueError:
+            return now
+
+    # Handle regular date format
+    try:
+        # Try parsing ISO format first
+        return datetime.fromisoformat(date_str.replace('Z', '+00:00'))
+    except ValueError:
+        # If ISO format fails, try parsing month-day format
+        months = {
+            'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6,
+            'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12
+        }
         
-    return datetime(year, month, day)
+        try:
+            month_str, day_str = date_str.split()
+            month = months[month_str]
+            day = int(day_str)
+            
+            # Get current year
+            current_date = datetime.now()
+            year = current_date.year
+            
+            # If the month is ahead of current month, it must be from last year
+            if month > current_date.month:
+                year -= 1
+                
+            return datetime(year, month, day)
+        except Exception:
+            return datetime.now()
 
 def is_within_days(date_str: str, days: int = 3) -> bool:
     """Check if the given date is within specified days from now"""
@@ -66,8 +92,9 @@ def is_within_days(date_str: str, days: int = 3) -> bool:
         tweet_date = parse_date(date_str)
         cutoff_date = datetime.now() - timedelta(days=days)
         return tweet_date >= cutoff_date
-    except Exception:
-        return False
+    except Exception as e:
+        print(f"Error parsing date '{date_str}': {str(e)}")
+        return True  # If we can't parse the date, include it by default
 
 def extract_engagement_metrics(block: str) -> tuple[Optional[int], Optional[int], Optional[int], Optional[int]]:
     """Extract engagement metrics from tweet block"""
