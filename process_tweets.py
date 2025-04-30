@@ -2,6 +2,7 @@ import json
 import glob
 import os
 from datetime import datetime, timedelta
+import pytz  # 需要添加这个导入
 
 def create_prompt(text):
     return f"""请以科技主编的视角总结以下内容，要求：
@@ -20,20 +21,26 @@ def create_prompt(text):
    - 适当使用数据支持观点
 
 3. 参考示例：
-   这几天连续在吃中日友好医院的瓜，前几天主线剧情一直是某副主任医师出轨多名同事，导致同事流产、怀孕，这些我觉得没必要在夜报里写，因为我不会当着几十万读者的面审判他人私德，多管闲事。但随着这个瓜的剧情发酵，舆情开始关注起了那位被医生搞大肚子的董医生，她的经历有些特殊。父亲是某央企的总经理\党委副书记（副厅级），母亲是北京211高校的副院长（副处级），女儿高中就去美国读书，之后在哥伦比亚大学读了一个经济学本科。......, 今天泡泡玛特炸裂上涨13%，市值飙到了2600亿。他们公司前几天 LABUBU第三代搪胶毛绒产品“前方高能”系列全球发售，国内国外都被热抢。国内二手市场溢价超过100%，国外芝加哥、洛杉矶也都排长队抢购，堪比当年iphone上市。
+   这几天连续在吃中日友好医院的瓜，前几天主线剧情一直是某副主任医师出轨多名同事，导致同事流产、怀孕，这些我觉得没必要在夜报里写，因为我不会当着几十万读者的面审判他人私德，多管闲事。但随着这个瓜的剧情发酵，舆情开始关注起了那位被医生搞大肚子的董医生，她的经历有些特殊。父亲是某央企的总经理\党委副书记（副厅级），母亲是北京211高校的副院长（副处级），女儿高中就去美国读书，之后在哥伦比亚大学读了一个经济学本科。......, 今天泡泡玛特炸裂上涨13%，市值飙到了2600亿。他们公司前几天 LABUBU第三代搪胶毛绒产品"前方高能"系列全球发售，国内国外都被热抢。国内二手市场溢价超过100%，国外芝加哥、洛杉矶也都排长队抢购，堪比当年iphone上市。
 
 原文内容：
 {text}
 
 请总结："""
 
-def is_recent_tweet(tweet, days=3):
+def is_recent_tweet(tweet, days=7):
     """检查推文是否在指定天数内"""
     try:
+        # 确保tweet_time是带时区的
         tweet_time = datetime.fromisoformat(tweet['timestamp'].replace('Z', '+00:00'))
-        cutoff_time = datetime.now() - timedelta(days=days)
+        # 确保cutoff_time也是带时区的
+        cutoff_time = datetime.now(pytz.UTC) - timedelta(days=days)
+        print(f'Debug - Tweet time: {tweet_time} (type: {type(tweet_time)})')
+        print(f'Debug - Cutoff time: {cutoff_time} (type: {type(cutoff_time)})')
+        print(f'Debug - Is recent: {tweet_time >= cutoff_time}')
         return tweet_time >= cutoff_time
-    except Exception:
+    except Exception as e:
+        print(f'Error parsing timestamp: {e}')
         return True  # 如果无法解析时间，默认包含
 
 def process_twitter_results():

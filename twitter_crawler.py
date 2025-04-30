@@ -80,7 +80,7 @@ class TwitterCrawler:
         logging.info(f"Found {len(tweet_elements)} tweets on the page")
         
         # 跳过置顶推文，获取接下来的三条
-        for tweet in tweet_elements[1:4]:  # 跳过第一个（置顶），取接下来的三个
+        for tweet in tweet_elements[0:4]:  # 跳过第一个（置顶），取接下来的三个
             try:
                 # 获取时间戳
                 time_element = await tweet.query_selector('time')
