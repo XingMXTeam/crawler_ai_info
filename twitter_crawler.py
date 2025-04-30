@@ -35,7 +35,18 @@ class TwitterCrawler:
             # 访问用户主页
             try:
                 await self.page.goto(url)
-                await self.random_delay(2, 3)  # 等待页面加载
+                # 增加等待时间到5-8秒
+                await self.random_delay(5, 8)
+                
+                # 等待页面加载完成
+                try:
+                    # 等待主要推文区域加载
+                    await self.page.wait_for_selector('article[data-testid="tweet"]', timeout=10000)
+                    logging.info("Tweet area loaded successfully")
+                except Exception as e:
+                    logging.warning(f"Timeout waiting for tweet area: {str(e)}")
+                    # 继续执行，因为页面可能已经部分加载
+                
             except Exception as e:
                 logging.warning(f"Page navigation warning: {str(e)}")
                 # 继续执行，因为页面可能已经加载
