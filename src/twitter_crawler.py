@@ -186,19 +186,19 @@ async def main():
             
             # 定期保存结果
             if (i + 1) % 5 == 0:
-                with open('twitter_results_temp.json', 'w', encoding='utf-8') as f:
+                with open('twitter_results/twitter_results_temp.json', 'w', encoding='utf-8') as f:
                     json.dump(results, f, ensure_ascii=False, indent=2)
-                logging.info("Saved intermediate results to twitter_results_temp.json")
+                logging.info("Saved intermediate results to twitter_results/twitter_results_temp.json")
         
         # 保存最终结果
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        final_filename = f'twitter_results_{timestamp}.json'
+        final_filename = f'twitter_results/twitter_results_{timestamp}.json'
         with open(final_filename, 'w', encoding='utf-8') as f:
             json.dump(results, f, ensure_ascii=False, indent=2)
         
         # 保存失败的URL
         if failed_urls:
-            failed_filename = f'failed_urls_{timestamp}.txt'
+            failed_filename = f'twitter_results/failed_urls_{timestamp}.txt'
             with open(failed_filename, 'w', encoding='utf-8') as f:
                 for url in failed_urls:
                     f.write(f"{url}\n")
@@ -216,4 +216,4 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         logging.warning("Crawling interrupted by user")
     except Exception as e:
-        logging.error(f"Unexpected error: {str(e)}") 
+        logging.error(f"Unexpected error: {str(e)}")
