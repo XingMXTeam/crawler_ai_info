@@ -7,6 +7,10 @@ import logging
 import random
 from twitter_urls import TWITTER_URLS
 from datetime import timezone
+import os
+import aiohttp
+import aiofiles
+from urllib.parse import urlparse
 
 # Set up logging
 logging.basicConfig(
@@ -93,6 +97,12 @@ class TwitterCrawler:
         # 跳过置顶推文，获取接下来的三条
         for tweet in tweet_elements[0:4]:  # 跳过第一个（置顶），取接下来的三个
             try:
+                # 获取推文链接
+                tweet_link = await tweet.query_selector('a[href*="/status/"]')
+                tweet_url = await tweet_link.get_attribute('href') if tweet_link else ""
+                if tweet_url:
+                    tweet_url = f"https://twitter.com{tweet_url}"
+                
                 # 获取时间戳
                 time_element = await tweet.query_selector('time')
                 if not time_element:
@@ -120,6 +130,7 @@ class TwitterCrawler:
                 tweet_data = {
                     'text': text,
                     'timestamp': timestamp_str,
+                    'url': tweet_url,
                     'metrics': metrics
                 }
                 

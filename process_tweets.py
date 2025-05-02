@@ -5,22 +5,31 @@ from datetime import datetime, timedelta
 import pytz  # 需要添加这个导入
 
 def create_prompt(texts):
-    combined_text = "\n\n".join([f"推文 {i+1}:\n{text}" for i, text in enumerate(texts)])
+    combined_text = "\n\n".join([f"推文 {i+1}:\n{text['text']}\n来源: {text['url'] if text.get('url') else '无链接'}\n互动数据: 转发 {text['metrics'].get('retweet', 0)} | 回复 {text['metrics'].get('reply', 0)} | 点赞 {text['metrics'].get('like', 0)}" for i, text in enumerate(texts)])
     return f"""请以科技主编的视角总结以下所有推文内容，可以搜索网络，适当扩展，要求：
 
 1. 内容要求：
-   - 先说整体结论，再分点说明重要内容
    - 交代清楚背景信息
    - 主语必须是人或机构组织（如果是人要带上身份/职位）
    - 使用简单易懂的中文，避免专业术语
    - 纯文本输出，不要使用markdown格式
    - 注意不同推文之间的关联性
+   - 确保所有信息准确无误，如有不确定的内容请明确标注"待确认"，请搜索网络公开信息确认
+   - 每个重要信息点必须标注具体来源（来自哪个外部网站，附上明确的链接，不要用推文123这样的标注来源）
 
 2. 写作风格：
    - 语气专业但不失亲和力
    - 逻辑清晰，层次分明
    - 重点突出，避免冗长
    - 适当使用数据支持观点
+   - 保持客观中立，避免主观臆测
+
+3. 信息来源要求：
+   - 优先使用推文中的直接信息
+   - 如需补充外部信息，必须引用网络公开信息，并标注具体来源链接
+   - 对于推测性内容，必须明确标注"推测"或"可能"
+   - 对于有争议的内容，需要标注不同观点及其来源
+   - 所有引用的外部信息必须是可公开访问的网络资料
 
 请总结以下推文：
 {combined_text}"""
@@ -86,14 +95,20 @@ def process_twitter_results():
                     # 添加到推文列表
                     all_tweets.append({
                         "user": item.get('username', 'Unknown'),
-                        "text": tweet['text']
+                        "text": tweet['text'],
+                        "url": tweet.get('url', ''),
+                        "metrics": tweet.get('metrics', {})
                     })
+            
+            if not all_tweets:
+                print(f"文件 {file_path} 中没有符合条件的推文")
+                continue
             
             # 准备输出的JSON数据
             output_data = {
                 "instruction": "请总结以下所有推文，注意不同推文之间的关联性",
                 "tweets": all_tweets,
-                "prompt": create_prompt([tweet['text'] for tweet in all_tweets])
+                "prompt": create_prompt(all_tweets)
             }
             
             # 写入JSON文件
@@ -105,6 +120,9 @@ def process_twitter_results():
             
         except Exception as e:
             print(f"处理文件 {file_path} 时出错: {str(e)}")
+            print(f"错误详情: {type(e).__name__}")
+            import traceback
+            print(traceback.format_exc())
 
 if __name__ == "__main__":
     process_twitter_results() 
