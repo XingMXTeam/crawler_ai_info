@@ -3,6 +3,7 @@ prompts/
 results/
 twitter_results_temp/
 twitter_results_*/
+nitter_results/**
 
 # Python specific
 __pycache__/
